@@ -41,6 +41,9 @@ export default {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
           light: "hsl(var(--accent-light))",
+          secondary: "hsl(var(--accent-secondary))",
+          "secondary-foreground": "hsl(var(--accent-secondary-foreground))",
+          "secondary-light": "hsl(var(--accent-secondary-light))",
         },
         success: {
           DEFAULT: "hsl(var(--success))",
