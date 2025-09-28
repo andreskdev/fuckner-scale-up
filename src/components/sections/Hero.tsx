@@ -1,0 +1,67 @@
+import { Button } from "@/components/ui/button";
+import heroBackground from "@/assets/hero-background.jpg";
+
+const Hero = () => {
+  return (
+    <section id="inicio" className="min-h-screen flex items-center bg-gradient-subtle pt-16">
+      <div className="container mx-auto px-4 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <div className="space-y-8">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              Do planejamento à{" "}
+              <span className="bg-gradient-accent bg-clip-text text-transparent">
+                performance
+              </span>
+              : crescimento sem achismos.
+            </h1>
+            
+            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+              Estratégias digitais construídas para gerar resultados reais. Nada de fórmulas prontas: 
+              cada negócio pede um único caminho, e esse caminho começa aqui.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button variant="hero" size="lg">
+                Quero escalar meu negócio
+              </Button>
+              <Button variant="outline" size="lg">
+                Ver Cases de Sucesso
+              </Button>
+            </div>
+
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-accent">+14</div>
+                <div className="text-sm text-muted-foreground">Anos em Marketing</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-accent">R$ 28M+</div>
+                <div className="text-sm text-muted-foreground">Em vendas gerenciadas</div>
+              </div>
+              <div className="text-center col-span-2 md:col-span-1">
+                <div className="text-2xl md:text-3xl font-bold text-accent">+10</div>
+                <div className="text-sm text-muted-foreground">Nichos de mercado</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Hero Image */}
+          <div className="relative">
+            <div className="relative z-10">
+              <img
+                src={heroBackground}
+                alt="Crescimento digital e estratégias de marketing"
+                className="w-full h-auto rounded-2xl shadow-elegant"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-hero opacity-20 rounded-2xl"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
