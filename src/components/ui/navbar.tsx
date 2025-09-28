@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("#inicio");
 
   const navLinks = [
     { href: "#inicio", label: "Início" },
@@ -13,6 +14,30 @@ const Navbar = () => {
     { href: "#depoimentos", label: "Depoimentos" },
     { href: "#contato", label: "Contato" },
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => link.href.substring(1));
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveLink(`#${section}`);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [navLinks]);
+
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-md border-b border-border shadow-card">
@@ -32,7 +57,13 @@ const Navbar = () => {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-foreground hover:text-primary transition-smooth px-3 py-2 rounded-md text-sm font-medium"
+                  className={`relative text-foreground hover:text-primary transition-smooth px-3 py-2 text-sm font-medium
+                    after:content-[''] after:absolute after:w-full after:h-0.5 after:bottom-0 after:left-0 
+                    after:bg-accent after:origin-left after:scale-x-0 after:transition-transform after:duration-600 
+                    hover:after:scale-x-100 hover:after:origin-left
+                    ${activeLink === link.href ? 'after:scale-x-100 after:bg-accent-secondary text-accent-secondary' : ''}
+                  `}
+                  onClick={() => setActiveLink(link.href)}
                 >
                   {link.label}
                 </a>

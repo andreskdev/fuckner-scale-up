@@ -76,7 +76,7 @@ const Cases = () => {
                       <h3 className="text-lg font-semibold">{caseItem.title}</h3>
                       <p className="text-sm text-muted-foreground">{caseItem.description}</p>
                     </div>
-                    <Badge variant="secondary" className="ml-4 bg-success-light text-success">
+                    <Badge variant="secondary" className="ml-4 bg-green-100 text-green-700 border-green-300">
                       <TrendingUp className="h-3 w-3 mr-1" />
                       {caseItem.result}
                     </Badge>
