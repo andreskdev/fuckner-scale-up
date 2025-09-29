@@ -7,7 +7,11 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp } from "lucide-react";
 
-const Cases = () => {
+const Cases = ({casesSectionRef}) => {
+
+
+  console.log(casesSectionRef)
+
   const cases = [
     {
       id: "case1",
@@ -47,7 +51,7 @@ const Cases = () => {
   ];
 
   return (
-    <section id="cases" className="py-20 bg-background">
+    <section id="cases" className="py-20 bg-background" ref={casesSectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

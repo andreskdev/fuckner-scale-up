@@ -15,6 +15,19 @@ const Navbar = () => {
     { href: "#contato", label: "Contato" },
   ];
 
+  // add
+  const handleLinkClick = (href: string) => {
+    setIsOpen(false);
+    setActiveLink(href);
+
+    const element = document.getElementById(href.substring(1));
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const sections = navLinks.map(link => link.href.substring(1));
@@ -25,7 +38,7 @@ const Navbar = () => {
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
-          
+
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
             setActiveLink(`#${section}`);
             break;
@@ -63,7 +76,10 @@ const Navbar = () => {
                     hover:after:scale-x-100 hover:after:origin-left
                     ${activeLink === link.href ? 'after:scale-x-100 after:bg-accent-secondary text-accent-secondary' : ''}
                   `}
-                  onClick={() => setActiveLink(link.href)}
+                  onClick={(e) => { // add e
+                    e.preventDefault(); // add
+                    handleLinkClick(link.href); // add
+                  }}
                 >
                   {link.label}
                 </a>

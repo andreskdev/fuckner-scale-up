@@ -1,7 +1,16 @@
 import { Button } from "@/components/ui/button";
-import heroBackground from "@/assets/hero-background.jpg";
+import Tabuleiro from "@/assets/tabuleiro.png";
+import { useRef } from "react";
 
-const Hero = () => {
+const Hero = ({casesSectionRef}) => {
+    
+    function goToSectionCases() {
+      casesSectionRef.current.scrollIntoView({
+        behavior: "smooth"
+      })
+    }
+    
+
   return (
     <section id="inicio" className="min-h-screen flex items-center bg-gradient-subtle pt-16">
       <div className="container mx-auto px-4 py-20">
@@ -25,7 +34,7 @@ const Hero = () => {
               <Button variant="hero" size="lg">
                 Quero escalar meu negócio
               </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" onClick={goToSectionCases}>
                 Ver Cases de Sucesso
               </Button>
             </div>
@@ -51,12 +60,12 @@ const Hero = () => {
           <div className="relative">
             <div className="relative z-10">
               <img
-                src={heroBackground}
+                src={Tabuleiro}
                 alt="Crescimento digital e estratégias de marketing"
-                className="w-full h-auto rounded-2xl shadow-elegant"
+                className="w-full h-auto rounded-2xl"
               />
             </div>
-            <div className="absolute inset-0 bg-gradient-hero opacity-20 rounded-2xl"></div>
+            {/* <div className="absolute inset-0 bg-gradient-hero opacity-20 rounded-2xl"></div> */}
           </div>
         </div>
       </div>

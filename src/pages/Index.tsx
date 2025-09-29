@@ -7,15 +7,21 @@ import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import { useRef } from "react";
+
+
 
 const Index = () => {
+
+  const casesSectionRef = useRef<HTMLButtonElement>(null);
+
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
+      <Hero casesSectionRef={casesSectionRef}/>
       <Services />
       <About />
-      <Cases />
+      <Cases casesSectionRef={casesSectionRef}/>
       <Testimonials />
       <Process />
       <Contact />
