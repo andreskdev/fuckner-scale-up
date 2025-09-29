@@ -1,11 +1,11 @@
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 import { useRef } from "react";
 
 const Banner = () => {
   const plugin = useRef(
-    Autoplay({ delay: 4000, stopOnInteraction: true })
+    Autoplay({ delay: 3000, stopOnInteraction: true })
   );
 
   return (
@@ -77,6 +77,10 @@ const Banner = () => {
             </div>
           </CarouselItem>
         </CarouselContent>
+        
+        {/* Botões de navegação */}
+        <CarouselPrevious className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 border-white/30" />
+        <CarouselNext className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-white/20 hover:bg-white/30 border-white/30" />
       </Carousel>
 
       {/* Indicadores */}
