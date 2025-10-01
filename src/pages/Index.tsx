@@ -1,4 +1,5 @@
 import Navbar from "@/components/ui/navbar";
+import BannerInitial from "@/components/sections/BannerInitial";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import About from "@/components/sections/About";
@@ -18,6 +19,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
+      <BannerInitial />
       <Hero casesSectionRef={casesSectionRef}/>
       <Services />
       <About />
