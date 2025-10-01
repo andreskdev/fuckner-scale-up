@@ -38,17 +38,17 @@ const BannerInitial = () => {
   };
 
   return (
-    <div className="relative w-full group">
-      <div className="w-full aspect-[16/9] md:aspect-auto">
+    <div className="relative w-full group pt-16">
+      <div className="w-full">
         <img
           src={banners[currentIndex].desktop}
           alt={banners[currentIndex].alt}
-          className="hidden md:block w-full h-full object-contain"
+          className="hidden md:block w-full h-auto object-cover"
         />
         <img
           src={banners[currentIndex].mobile}
           alt={banners[currentIndex].alt}
-          className="block md:hidden w-full h-full object-contain"
+          className="block md:hidden w-full h-auto object-cover"
         />
       </div>
 
