@@ -7,14 +7,14 @@ import bannerFormulaMobile from "@/assets/banner-sem-formula-magica-fuckner-mobi
 
 const banners = [
   {
-    desktop: bannerLogoDesktop,
-    mobile: bannerLogoMobile,
-    alt: "Fuckner - A consultoria em marketing digital e e-commerce que seu negócio precisa",
-  },
-  {
     desktop: bannerFormulaDesktop,
     mobile: bannerFormulaMobile,
     alt: "Sem fórmula mágica - Seu projeto precisa de compreensão de mercado, entendimento do comportamento de compra e dados",
+  },
+  {
+    desktop: bannerLogoDesktop,
+    mobile: bannerLogoMobile,
+    alt: "Fuckner - A consultoria em marketing digital e e-commerce que seu negócio precisa",
   },
 ];
 
@@ -39,16 +39,16 @@ const BannerInitial = () => {
 
   return (
     <div className="relative w-full group">
-      <div className="w-full">
+      <div className="w-full aspect-[16/9] md:aspect-auto">
         <img
           src={banners[currentIndex].desktop}
           alt={banners[currentIndex].alt}
-          className="hidden md:block w-full h-auto"
+          className="hidden md:block w-full h-full object-contain"
         />
         <img
           src={banners[currentIndex].mobile}
           alt={banners[currentIndex].alt}
-          className="block md:hidden w-full h-auto"
+          className="block md:hidden w-full h-full object-contain"
         />
       </div>
 
@@ -75,7 +75,7 @@ const BannerInitial = () => {
             key={index}
             onClick={() => setCurrentIndex(index)}
             className={`w-2 h-2 rounded-full transition-all ${
-              index === currentIndex ? "bg-white w-8" : "bg-white/50"
+              index === currentIndex ? "bg-accent w-8" : "bg-accent/50"
             }`}
             aria-label={`Ir para banner ${index + 1}`}
           />
