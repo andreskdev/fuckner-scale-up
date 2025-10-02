@@ -64,14 +64,18 @@ const Footer = () => {
               
               <div className="flex gap-4 pt-2">
                 <a
-                  href="#"
+                  href="https://br.linkedin.com/in/tayla-fuckner"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-primary-foreground/60 hover:text-accent transition-smooth"
                   aria-label="LinkedIn"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/thefuckner/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-primary-foreground/60 hover:text-accent transition-smooth"
                   aria-label="Instagram"
                 >
