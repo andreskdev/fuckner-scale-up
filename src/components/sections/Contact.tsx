@@ -7,67 +7,33 @@ const Contact = () => {
   return (
     <section id="contato" className="py-20 bg-gradient-hero">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Pronto para{" "}
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+            Vamos{" "}
             <span className="text-accent">
               transformar
             </span>{" "}
-            seu negócio digital?
+            seu negócio?
           </h2>
-          <p className="text-lg text-white/90 max-w-3xl mx-auto">
-            O próximo resultado expressivo pode ser o seu. Vamos escalar seu negócio? 
-            Qual dígito de milhão você quer alcançar?
+          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+            Entre em contato e descubra como alcançar resultados extraordinários
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          {/* Main WhatsApp CTA */}
-          <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-sm mb-8">
-            <CardContent className="p-12 text-center">
-              <div className="mb-8">
-                <div className="w-24 h-24 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-glow">
-                  <MessageSquare className="h-12 w-12 text-white" />
-                </div>
-                <h3 className="text-3xl font-bold mb-4">
-                  Vamos <span className="text-accent">transformar</span> seu negócio?
-                </h3>
-                <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                  Clique no botão abaixo e inicie uma conversa direta comigo no WhatsApp. 
-                  Vamos discutir como posso ajudar seu negócio a alcançar resultados extraordinários.
-                </p>
-              </div>
-              
-              <Button 
-                variant="cta" 
-                size="lg" 
-                className="text-lg px-12 py-6 h-auto shadow-elegant hover:shadow-glow transition-all duration-300"
-                asChild
-              >
-                <a 
-                  href="https://wa.me/5541998317531?text=Quero%20impulsionar%20meus%20neg%C3%B3cios%20com%20voc%C3%AA%2C%20Tayla%20Fuckner%21"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  💬 Conversar no WhatsApp agora
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
-
+        <div className="max-w-5xl mx-auto">
           {/* Contact Options */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-accent/10">
-                  <div className="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center">
-                    <Mail className="h-6 w-6 text-accent-foreground" />
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center shadow-lg">
+                    <Mail className="h-8 w-8 text-accent-foreground" />
                   </div>
                   <div>
-                    <div className="font-semibold mb-1">Email</div>
+                    <h3 className="text-xl font-bold mb-2">Email</h3>
                     <a 
                       href="mailto:taylla@fuckner.com.br"
-                      className="text-accent hover:underline"
+                      className="text-lg text-accent hover:underline transition-all"
                     >
                       taylla@fuckner.com.br
                     </a>
@@ -76,22 +42,28 @@ const Contact = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <div className="flex items-center gap-4 p-4 rounded-lg bg-success/10">
-                  <div className="w-12 h-12 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center">
-                    <MessageSquare className="h-6 w-6 text-white" />
+            <Card className="shadow-elegant border-0 bg-gradient-to-br from-green-50 to-green-100 hover:shadow-glow transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex flex-col items-center text-center gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
+                    <MessageSquare className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <div className="font-semibold mb-1">WhatsApp</div>
-                    <a 
-                      href="https://wa.me/5541998317531"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-green-600 hover:underline"
+                    <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
+                    <Button 
+                      variant="default" 
+                      size="lg"
+                      className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                      asChild
                     >
-                      (41) 9 9831-7531
-                    </a>
+                      <a 
+                        href="https://wa.me/5541998317531?text=Quero%20impulsionar%20meus%20neg%C3%B3cios%20com%20voc%C3%AA%2C%20Tayla%20Fuckner%21"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        💬 Conversar Agora
+                      </a>
+                    </Button>
                   </div>
                 </div>
               </CardContent>
@@ -99,31 +71,29 @@ const Contact = () => {
           </div>
 
           {/* Why Choose Section */}
-          <div className="space-y-8">
-            <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-sm">
-              <CardContent className="p-6">
-                <h3 className="text-lg font-semibold mb-4">Por que escolher a Fuckner?</h3>
-                <ul className="space-y-3 text-sm text-muted-foreground">
-                  <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span>+14 anos de experiência comprovada</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span>R$ 28+ milhões em vendas gerenciadas</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Estratégias personalizadas, não fórmulas prontas</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span>Foco em resultados mensuráveis</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-sm">
+            <CardContent className="p-10">
+              <h3 className="text-2xl font-bold text-center mb-8">Por que escolher a Fuckner?</h3>
+              <div className="grid md:grid-cols-2 gap-6">
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-base">+14 anos de experiência comprovada</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-base">R$ 28+ milhões em vendas gerenciadas</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-base">Estratégias personalizadas, não fórmulas prontas</span>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
+                  <span className="text-base">Foco em resultados mensuráveis</span>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </div>
     </section>
