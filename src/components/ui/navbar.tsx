@@ -89,8 +89,18 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            <Button variant="cta" size="sm">
-              Quero escalar meu negócio
+            <Button 
+              variant="cta" 
+              size="sm"
+              asChild
+            >
+              <a 
+                href="https://wa.me/5541998317531?text=Quero%20impulsionar%20meus%20neg%C3%B3cios%20com%20voc%C3%AA%2C%20Tayla%20Fuckner%21"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Quero escalar meu negócio
+              </a>
             </Button>
           </div>
 
@@ -121,8 +131,19 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="pt-4">
-                <Button variant="cta" size="sm" className="w-full">
-                  Quero escalar meu negócio
+                <Button 
+                  variant="cta" 
+                  size="sm" 
+                  className="w-full"
+                  asChild
+                >
+                  <a 
+                    href="https://wa.me/5541998317531?text=Quero%20impulsionar%20meus%20neg%C3%B3cios%20com%20voc%C3%AA%2C%20Tayla%20Fuckner%21"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Quero escalar meu negócio
+                  </a>
                 </Button>
               </div>
             </div>

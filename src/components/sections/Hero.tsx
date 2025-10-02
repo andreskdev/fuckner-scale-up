@@ -31,8 +31,14 @@ const Hero = ({casesSectionRef}) => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg">
-                Quero escalar meu negócio
+              <Button variant="hero" size="lg" asChild>
+                <a 
+                  href="https://wa.me/5541998317531?text=Quero%20impulsionar%20meus%20neg%C3%B3cios%20com%20voc%C3%AA%2C%20Tayla%20Fuckner%21"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Quero escalar meu negócio
+                </a>
               </Button>
               <Button variant="outline" size="lg" onClick={goToSectionCases}>
                 Ver Cases de Sucesso
