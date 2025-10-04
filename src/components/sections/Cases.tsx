@@ -72,7 +72,8 @@ const Cases = ({casesSectionRef}) => {
               <AccordionItem 
                 key={caseItem.id} 
                 value={caseItem.id}
-                className="border border-border rounded-lg px-6 shadow-card bg-card/50 backdrop-blur-sm"
+                className="border border-border rounded-lg px-6 shadow-card backdrop-blur-sm relative overflow-hidden"
+                style={{ background: 'var(--gradient-hero)' }}
               >
                 <AccordionTrigger className="hover:no-underline py-6">
                   <div className="flex items-center justify-between w-full">
