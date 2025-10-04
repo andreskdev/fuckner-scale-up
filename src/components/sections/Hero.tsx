@@ -25,7 +25,7 @@ const Hero = ({casesSectionRef}) => {
               : crescimento sem achismos.
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl">
+            <p className="text-lg md:text-xl text-primary-light leading-relaxed max-w-xl">
               Estratégias digitais construídas para gerar resultados reais. Nada de fórmulas prontas: 
               cada negócio pede um único caminho, e esse caminho começa aqui.
             </p>
