@@ -76,7 +76,7 @@ const Testimonials = () => {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-4">
-                  <Card className="shadow-elegant border-0 bg-card/80 backdrop-blur-sm">
+                  <Card className="shadow-elegant border-0 backdrop-blur-sm relative overflow-hidden" style={{ background: 'var(--gradient-hero)' }}>
                     <CardContent className="p-8 text-center">
                       <Quote className="h-8 w-8 text-accent mx-auto mb-6" />
                       
