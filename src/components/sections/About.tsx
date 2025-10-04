@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Award, Target, TrendingUp, Globe2 } from "lucide-react";
-import taylaProfile from "@/assets/tayla-profile.jpg";
+import taylaProfile from "@/assets/tayla-fuckner-profile.jpg";
 
 const About = () => {
   const highlights = [
