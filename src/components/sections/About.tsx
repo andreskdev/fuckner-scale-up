@@ -7,6 +7,7 @@ const About = () => {
   const titleAnimation = useScrollAnimation({ direction: "up" });
   const imageAnimation = useScrollAnimation({ direction: "left" });
   const contentAnimation = useScrollAnimation({ direction: "right" });
+  const shadowPersonalizado = "0 3px 8px 0 rgba(0, 0, 0, 0.6)";
   
   const highlights = [
     {
@@ -68,7 +69,7 @@ const About = () => {
             {/* Highlights */}
             <div className="space-y-4">
               {highlights.map((highlight, index) => (
-                <Card key={index} className="p-4 border-0 shadow-card bg-card/70 backdrop-blur-sm">
+                <Card key={index} className="p-4 border-0 shadow-card bg-card/70 backdrop-blur-sm" style={{boxShadow: shadowPersonalizado}}>
                   <div className="flex items-start gap-4">
                     <div className={`p-2 rounded-lg bg-${highlight.color.split('-')[1]}/10`}>
                       <highlight.icon className={`h-5 w-5 ${highlight.color}`} />

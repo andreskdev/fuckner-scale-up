@@ -51,7 +51,7 @@ const Contact = () => {
                       className="text-lg text-accent hover:underline transition-all"
                     >
                       taylla@fuckner.com.br
-                    </a>
+                    </a><br></br>
                     <Button
                       onClick={copyEmail}
                       size="lg"
@@ -81,7 +81,7 @@ const Contact = () => {
                     <MessageSquare className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
+                    <h3 className="text-xl font-bold mb-12">WhatsApp</h3>
                     <Button 
                       variant="default" 
                       size="lg"

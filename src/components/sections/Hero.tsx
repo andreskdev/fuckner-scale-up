@@ -56,7 +56,7 @@ const Hero = ({casesSectionRef}) => {
                 className="bg-accent text-accent-foreground hover:bg-accent hover:scale-105 transition-all duration-600"
                 style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
               >
-                Ver Cases de Sucesso
+                Ver cases de sucesso
               </Button>
             </div>
 
