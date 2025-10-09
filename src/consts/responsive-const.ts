@@ -1,0 +1,1 @@
+export const MAX_WIDTH_MOBILE_VIEWPORT = 1023;
