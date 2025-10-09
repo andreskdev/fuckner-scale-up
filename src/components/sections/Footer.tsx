@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Linkedin, Instagram, ExternalLink } from "lucide-react";
+import fucknerLogo from "@/assets/fuckner_logo.png";
 
 const Footer = () => {
   const navLinks = [
@@ -15,7 +16,13 @@ const Footer = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Logo and Description */}
           <div>
-            <div className="text-2xl font-bold mb-4 text-accent">Fuckner</div>
+            <div className="mb-4">
+              <img 
+                src={fucknerLogo} 
+                alt="Fuckner Logo" 
+                className="h-16 w-auto"
+              />
+            </div>
             <p className="text-sm text-primary-foreground/80 leading-relaxed">
               Consultoria especializada em marketing digital e crescimento de negócios. 
               Estratégias personalizadas para resultados excepcionais.

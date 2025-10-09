@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import Tabuleiro from "@/assets/tabuleiro.png";
 import { useRef } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Hero = ({casesSectionRef}) => {
+    const titleAnimation = useScrollAnimation({ direction: "up" });
+    const textAnimation = useScrollAnimation({ direction: "left" });
+    const imageAnimation = useScrollAnimation({ direction: "right" });
     
     function goToSectionCases() {
       casesSectionRef.current.scrollIntoView({
@@ -17,7 +21,7 @@ const Hero = ({casesSectionRef}) => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-8">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+            <h1 ref={titleAnimation.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight ${titleAnimation.className}`}>
               Do planejamento à{" "}
               <span className="bg-gradient-accent bg-clip-text text-transparent">
                 performance
@@ -25,13 +29,18 @@ const Hero = ({casesSectionRef}) => {
               : crescimento sem achismos.
             </h1>
             
-            <p className="text-lg md:text-xl text-primary-light leading-relaxed max-w-xl">
+            <p ref={textAnimation.ref} className={`text-lg md:text-xl text-primary-light leading-relaxed max-w-xl ${textAnimation.className}`}>
               Estratégias digitais construídas para gerar resultados reais. Nada de fórmulas prontas: 
               cada negócio pede um único caminho, e esse caminho começa aqui.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="hero" size="lg" asChild>
+              <Button 
+                variant="hero" 
+                size="lg" 
+                asChild
+                style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
+              >
                 <a 
                   href="https://wa.me/5541998317531?text=Quero%20impulsionar%20meus%20neg%C3%B3cios%20com%20voc%C3%AA%2C%20Tayla%20Fuckner%21"
                   target="_blank"
@@ -40,7 +49,12 @@ const Hero = ({casesSectionRef}) => {
                   Quero escalar meu negócio
                 </a>
               </Button>
-              <Button variant="outline" size="lg" onClick={goToSectionCases}>
+              <Button 
+                size="lg" 
+                onClick={goToSectionCases}
+                className="bg-accent text-accent-foreground hover:bg-accent hover:scale-105 transition-all duration-600"
+                style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
+              >
                 Ver Cases de Sucesso
               </Button>
             </div>
@@ -63,7 +77,7 @@ const Hero = ({casesSectionRef}) => {
           </div>
 
           {/* Hero Image */}
-          <div className="relative">
+          <div ref={imageAnimation.ref} className={`relative ${imageAnimation.className}`}>
             <div className="relative z-10">
               <img
                 src={Tabuleiro}

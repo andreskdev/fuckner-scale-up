@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import fucknerLogo from "@/assets/fuckner_logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,8 +59,12 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="#inicio" className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
-              Fuckner
+            <a href="#inicio" className="flex items-center">
+              <img 
+                src={fucknerLogo} 
+                alt="Fuckner Logo" 
+                className="h-10 w-auto"
+              />
             </a>
           </div>
 

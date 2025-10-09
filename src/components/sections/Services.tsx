@@ -1,10 +1,16 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { TrendingUp, Globe, Lightbulb, CheckCircle } from "lucide-react";
+import { CheckCircle } from "lucide-react";
+import bispoDourado from "@/assets/bispo_dourado.png";
+import reiDourado from "@/assets/rei_dourado.png";
+import rainhaDourada from "@/assets/rainha_dourada.png";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Services = () => {
+  const titleAnimation = useScrollAnimation({ direction: "up" });
+  
   const services = [
     {
-      icon: TrendingUp,
+      image: bispoDourado,
       title: "Marketing Digital",
       description: "Campanhas de Social ADS, Google Ads e YouTube Ads, SEO, gestão de redes sociais.",
       features: [
@@ -15,7 +21,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Globe,
+      image: reiDourado,
       title: "Criação de Sites",
       description: "E-commerce, sites institucionais e landing pages otimizadas para conversão.",
       features: [
@@ -25,7 +31,7 @@ const Services = () => {
       ]
     },
     {
-      icon: Lightbulb,
+      image: rainhaDourada,
       title: "Consultoria Estratégica",
       description: "Planejamento, estruturação e treinamento para escalar seu negócio.",
       features: [
@@ -42,7 +48,7 @@ const Services = () => {
     <section id="servicos" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 ref={titleAnimation.ref} className={`text-3xl md:text-4xl font-bold mb-4 ${titleAnimation.className}`}>
             Soluções que fazem a{" "}
             <span className="bg-gradient-accent bg-clip-text text-transparent">
               diferença
@@ -61,8 +67,12 @@ const Services = () => {
               className="shadow-card hover:shadow-elegant transition-smooth border-0 bg-card/50 backdrop-blur-sm hover:scale-105"
             >
               <CardHeader className="text-center">
-                <div className="w-16 h-16 bg-gradient-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
-                  <service.icon className="h-8 w-8 text-accent-foreground" />
+                <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">
+                  <img 
+                    src={service.image} 
+                    alt={`${service.title} icon`} 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
                 <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
               </CardHeader>

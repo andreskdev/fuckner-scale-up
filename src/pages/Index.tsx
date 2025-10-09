@@ -8,7 +8,9 @@ import Testimonials from "@/components/sections/Testimonials";
 import Process from "@/components/sections/Process";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { useRef } from "react";
+import { Toaster } from "@/components/ui/toaster";
 
 
 
@@ -28,6 +30,8 @@ const Index = () => {
       <Process />
       <Contact />
       <Footer />
+      <FloatingWhatsApp />
+      <Toaster />
     </div>
   );
 };

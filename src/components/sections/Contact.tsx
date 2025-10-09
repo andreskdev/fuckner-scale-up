@@ -1,14 +1,29 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, MessageSquare } from "lucide-react";
+import { Mail, MessageSquare, Copy, Check } from "lucide-react";
+import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Contact = () => {
+  const [copied, setCopied] = useState(false);
+  const titleAnimation = useScrollAnimation({ direction: "up" });
+
+  const copyEmail = () => {
+    navigator.clipboard.writeText("taylla@fuckner.com.br");
+    setCopied(true);
+    toast({
+      title: "E-mail copiado!",
+      description: "O endereço de e-mail foi copiado para a área de transferência.",
+    });
+    setTimeout(() => setCopied(false), 2000);
+  };
 
   return (
     <section id="contato" className="py-20 bg-gradient-hero">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+          <h2 ref={titleAnimation.ref} className={`text-3xl md:text-5xl font-bold text-white mb-6 ${titleAnimation.className}`}>
             Vamos{" "}
             <span className="text-accent">
               transformar
@@ -37,6 +52,24 @@ const Contact = () => {
                     >
                       taylla@fuckner.com.br
                     </a>
+                    <Button
+                      onClick={copyEmail}
+                      variant="outline"
+                      size="sm"
+                      className="mt-3 w-full"
+                    >
+                      {copied ? (
+                        <>
+                          <Check className="h-4 w-4 mr-2" />
+                          Copiado!
+                        </>
+                      ) : (
+                        <>
+                          <Copy className="h-4 w-4 mr-2" />
+                          Copiar e-mail
+                        </>
+                      )}
+                    </Button>
                   </div>
                 </div>
               </CardContent>

@@ -1,8 +1,13 @@
 import { Card } from "@/components/ui/card";
 import { Award, Target, TrendingUp, Globe2 } from "lucide-react";
 import taylaProfile from "@/assets/tayla-fuckner-profile.jpg";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const About = () => {
+  const titleAnimation = useScrollAnimation({ direction: "up" });
+  const imageAnimation = useScrollAnimation({ direction: "left" });
+  const contentAnimation = useScrollAnimation({ direction: "right" });
+  
   const highlights = [
     {
       icon: Award,
@@ -31,21 +36,22 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Photo */}
-          <div className="relative">
+          <div ref={imageAnimation.ref} className={`relative ${imageAnimation.className}`}>
             <div className="relative z-10">
               <img
                 src={taylaProfile}
                 alt="Tayla Fuckner - Consultora Digital"
                 className="w-full max-w-md mx-auto rounded-2xl shadow-elegant"
+                style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
               />
             </div>
             <div className="absolute inset-0 bg-gradient-accent opacity-10 rounded-2xl max-w-md mx-auto"></div>
           </div>
 
           {/* Content */}
-          <div className="space-y-8">
+          <div ref={contentAnimation.ref} className={`space-y-8 ${contentAnimation.className}`}>
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 ref={titleAnimation.ref} className={`text-3xl md:text-4xl font-bold mb-6 ${titleAnimation.className}`}>
                 Por trás da{" "}
                 <span className="bg-gradient-accent bg-clip-text text-transparent">
                   Fuckner Consultoria

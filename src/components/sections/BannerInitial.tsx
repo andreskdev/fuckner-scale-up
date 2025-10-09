@@ -44,11 +44,13 @@ const BannerInitial = () => {
           src={banners[currentIndex].desktop}
           alt={banners[currentIndex].alt}
           className="hidden md:block w-full h-auto object-cover"
+          style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
         />
         <img
           src={banners[currentIndex].mobile}
           alt={banners[currentIndex].alt}
           className="block md:hidden w-full h-auto object-cover"
+          style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
         />
       </div>
 
