@@ -6,8 +6,8 @@ import path from "path";
 export default defineConfig(({ mode }) => ({
   base: '/fuckner-scale-up',  
   server: {
-    host: "::",
-    port: 8080,
+    // host: "::",
+    port: 3001,
   },
   plugins: [
     react(),
