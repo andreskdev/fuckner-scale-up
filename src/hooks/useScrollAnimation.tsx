@@ -3,11 +3,15 @@ import { useEffect, useRef, useState } from "react";
 interface UseScrollAnimationOptions {
   threshold?: number;
   direction?: "up" | "left" | "right";
+  duration?: number;
+  delay?: number;
 }
 
 export const useScrollAnimation = ({ 
-  threshold = 0.3, 
-  direction = "up" 
+  threshold = 0.1, 
+  direction = "up",
+  duration = 2000, 
+  delay = 100 // ms
 }: UseScrollAnimationOptions = {}) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -38,11 +42,11 @@ export const useScrollAnimation = ({
     if (!isVisible) {
       switch (direction) {
         case "up":
-          return "opacity-0 translate-y-10";
+          return "opacity-0 translate-y-20";
         case "left":
-          return "opacity-0 -translate-x-10";
+          return "opacity-0 -translate-x-20";
         case "right":
-          return "opacity-0 translate-x-10";
+          return "opacity-0 translate-x-20";
         default:
           return "opacity-0";
       }
@@ -52,6 +56,6 @@ export const useScrollAnimation = ({
 
   return {
     ref,
-    className: `transition-all duration-[1200ms] ease-out ${getAnimationClass()}`,
+    className: `transition-all duration-[${duration}ms] delay-[${delay}] ease-out ${getAnimationClass()}`,
   };
 };
