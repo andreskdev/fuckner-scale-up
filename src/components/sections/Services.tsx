@@ -64,7 +64,7 @@ const Services = () => {
           {services.map((service, index) => (
             <Card 
               key={index} 
-              className="shadow-card hover:shadow-elegant transition-smooth border-0 bg-card/50 backdrop-blur-sm hover:scale-105"
+              className="shadow-card hover:shadow-elegant transition-all duration-600 border-0 bg-card/50 backdrop-blur-sm hover:scale-105"
             >
               <CardHeader className="text-center">
                 <div className="w-20 h-20 mx-auto mb-4 flex items-center justify-center">

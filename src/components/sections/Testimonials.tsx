@@ -2,9 +2,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Quote } from "lucide-react";
 import { useEffect, useState } from "react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const titleAnimation = useScrollAnimation({ direction: "up" });
 
   const testimonials = [
     {
@@ -58,7 +60,7 @@ const Testimonials = () => {
     <section id="depoimentos" className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 ref={titleAnimation.ref} className={`text-3xl md:text-4xl font-bold mb-4 ${titleAnimation.className}`}>
             A visão de{" "}
             <span className="bg-gradient-accent bg-clip-text text-transparent">
               parceiros
@@ -76,7 +78,7 @@ const Testimonials = () => {
             >
               {testimonials.map((testimonial, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-4">
-                  <Card className="shadow-elegant border-0 backdrop-blur-sm relative overflow-hidden" style={{ background: 'var(--gradient-hero)' }}>
+                  <Card className="shadow-elegant border-0 backdrop-blur-sm relative overflow-hidden hover:scale-105 transition-all duration-600" style={{ background: 'var(--gradient-hero)' }}>
                     <CardContent className="p-8 text-center">
                       <Quote className="h-8 w-8 text-accent mx-auto mb-6" />
                       

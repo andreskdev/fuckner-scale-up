@@ -6,9 +6,10 @@ import {
 } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { TrendingUp } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Cases = ({casesSectionRef}) => {
-
+  const titleAnimation = useScrollAnimation({ direction: "up" });
 
   console.log(casesSectionRef)
 
@@ -54,7 +55,7 @@ const Cases = ({casesSectionRef}) => {
     <section id="cases" className="py-20 bg-background" ref={casesSectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 ref={titleAnimation.ref} className={`text-3xl md:text-4xl font-bold mb-4 ${titleAnimation.className}`}>
             Estratégia em{" "}
             <span className="bg-gradient-accent bg-clip-text text-transparent">
               ação

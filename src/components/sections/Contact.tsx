@@ -54,9 +54,8 @@ const Contact = () => {
                     </a>
                     <Button
                       onClick={copyEmail}
-                      variant="outline"
-                      size="sm"
-                      className="mt-3 w-full"
+                      size="lg"
+                      className="mt-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-600"
                     >
                       {copied ? (
                         <>

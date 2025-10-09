@@ -1,7 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Search, Target, Rocket, TrendingUp } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Process = () => {
+  const titleAnimation = useScrollAnimation({ direction: "up" });
+  
   const steps = [
     {
       icon: Search,
@@ -33,7 +36,7 @@ const Process = () => {
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 ref={titleAnimation.ref} className={`text-3xl md:text-4xl font-bold mb-4 ${titleAnimation.className}`}>
             Da estratégia à{" "}
             <span className="bg-gradient-accent bg-clip-text text-transparent">
               execução
@@ -51,7 +54,7 @@ const Process = () => {
 
             <div className="grid grid-cols-4 gap-8 relative z-10">
               {steps.map((step, index) => (
-                <Card key={index} className="border-0 shadow-card bg-card/80 backdrop-blur-sm hover:scale-105 transition-bounce">
+                <Card key={index} className="border-0 shadow-card bg-card/80 backdrop-blur-sm hover:scale-105 transition-all duration-600">
                   <CardContent className="p-6 text-center">
                     <div className="relative mb-6">
                       <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-4">

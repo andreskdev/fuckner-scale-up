@@ -39,6 +39,7 @@ const Hero = ({casesSectionRef}) => {
                 variant="hero" 
                 size="lg" 
                 asChild
+                className="hover:scale-105 transition-all duration-600"
                 style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
               >
                 <a 

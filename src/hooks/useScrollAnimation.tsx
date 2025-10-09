@@ -6,7 +6,7 @@ interface UseScrollAnimationOptions {
 }
 
 export const useScrollAnimation = ({ 
-  threshold = 0.1, 
+  threshold = 0.3, 
   direction = "up" 
 }: UseScrollAnimationOptions = {}) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -52,6 +52,6 @@ export const useScrollAnimation = ({
 
   return {
     ref,
-    className: `transition-all duration-[600ms] ease-out ${getAnimationClass()}`,
+    className: `transition-all duration-[1200ms] ease-out ${getAnimationClass()}`,
   };
 };
