@@ -56,6 +56,6 @@ export const useScrollAnimation = ({
 
   return {
     ref,
-    className: `transition-all duration-[${duration}ms] delay-[${delay}] ease-out ${getAnimationClass()}`,
+    className: `transition-all duration-[1200ms] ease-out ${getAnimationClass()}`,
   };
 };
