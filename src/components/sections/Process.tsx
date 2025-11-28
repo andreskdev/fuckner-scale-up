@@ -8,25 +8,25 @@ const Process = () => {
   const steps = [
     {
       icon: Search,
-      number: "01",
+      // number: "01",
       title: "Diagnóstico Inicial",
       description: "Análise completa do momento do negócio"
     },
     {
       icon: Target,
-      number: "02", 
+      // number: "02", 
       title: "Plano Estratégico",
       description: "Definição de metas, prazos e canais"
     },
     {
       icon: Rocket,
-      number: "03",
+      // number: "03",
       title: "Execução",
       description: "Implementação das ações de marketing, vendas e tecnologia"
     },
     {
       icon: TrendingUp,
-      number: "04",
+      // number: "04",
       title: "Otimização Contínua",
       description: "Monitoramento de métricas e ajustes"
     }
@@ -60,9 +60,9 @@ const Process = () => {
                       <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center mx-auto mb-4">
                         <step.icon className="h-8 w-8 text-accent-foreground" />
                       </div>
-                      <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                      {/* <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
                         {step.number}
-                      </div>
+                      </div> */}
                     </div>
                     
                     <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
@@ -84,9 +84,9 @@ const Process = () => {
                     <div className="w-12 h-12 bg-gradient-accent rounded-full flex items-center justify-center">
                       <step.icon className="h-6 w-6 text-accent-foreground" />
                     </div>
-                    <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
+                    {/* <div className="absolute -top-1 -right-1 w-6 h-6 bg-primary text-primary-foreground rounded-full flex items-center justify-center text-xs font-bold">
                       {step.number}
-                    </div>
+                    </div> */}
                   </div>
                   
                   <div>

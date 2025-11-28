@@ -17,7 +17,7 @@ const Hero = ({casesSectionRef}) => {
 
   return (
     <section id="inicio" className="min-h-screen flex items-center bg-gradient-subtle pt-16">
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 md:py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-8">
@@ -33,7 +33,21 @@ const Hero = ({casesSectionRef}) => {
               Estratégias digitais construídas para gerar resultados reais. Nada de fórmulas prontas: 
               cada negócio pede um único caminho, e esse caminho começa aqui.
             </p>
-
+             {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-accent">+14</div>
+                <div className="text-sm text-muted-foreground">Anos em Marketing</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl md:text-3xl font-bold text-accent">R$ 28M+</div>
+                <div className="text-sm text-muted-foreground">Em vendas gerenciadas</div>
+              </div>
+              <div className="text-center col-span-2 md:col-span-1">
+                <div className="text-2xl md:text-3xl font-bold text-accent">+10</div>
+                <div className="text-sm text-muted-foreground">Nichos de mercado</div>
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 variant="hero" 
@@ -58,22 +72,6 @@ const Hero = ({casesSectionRef}) => {
               >
                 Ver cases de sucesso
               </Button>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6 pt-8">
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-accent">+14</div>
-                <div className="text-sm text-muted-foreground">Anos em Marketing</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl md:text-3xl font-bold text-accent">R$ 28M+</div>
-                <div className="text-sm text-muted-foreground">Em vendas gerenciadas</div>
-              </div>
-              <div className="text-center col-span-2 md:col-span-1">
-                <div className="text-2xl md:text-3xl font-bold text-accent">+10</div>
-                <div className="text-sm text-muted-foreground">Nichos de mercado</div>
-              </div>
             </div>
           </div>
 

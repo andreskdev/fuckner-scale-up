@@ -18,16 +18,47 @@ const banners = [
   },
 ];
 
-const BannerInitial = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState<boolean | null>(null);
 
   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const mediaQuery = window.matchMedia(`(max-width: ${breakpoint}px)`);
+
+    const handleChange = () => {
+      setIsMobile(mediaQuery.matches);
+    };
+
+    // valor inicial
+    handleChange();
+
+    // listener para resize / mudança de orientação
+    mediaQuery.addEventListener("change", handleChange);
+
+    return () => {
+      mediaQuery.removeEventListener("change", handleChange);
+    };
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
+export const BannerInitial = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const isMobile = useIsMobile(768)
+
+  useEffect(() => {
+
+    if (isMobile) {
+      return
+    }
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % banners.length);
     }, 8000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isMobile]);
 
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + banners.length) % banners.length);
@@ -37,8 +68,32 @@ const BannerInitial = () => {
     setCurrentIndex((prev) => (prev + 1) % banners.length);
   };
 
+  if (isMobile === null) {
+    return
+  }
   return (
-    <div className="relative w-full group pt-16">
+
+    <>
+      {
+        isMobile ? (
+           <div className="relative w-full group pt-16">
+      <div className="w-full">
+        <img
+          src={banners[currentIndex].desktop}
+          alt={banners[currentIndex].alt}
+          className="hidden md:block w-full h-auto object-cover"
+          style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
+        />
+        <img
+          src={banners[currentIndex].mobile}
+          alt={banners[currentIndex].alt}
+          className="block md:hidden w-full h-auto object-cover"
+          style={{ boxShadow: "0 8px 16px 0 rgba(0,0,0,0.6)" }}
+        />
+      </div>
+    </div>
+        ): (
+           <div className="relative w-full group pt-16">
       <div className="w-full">
         <img
           src={banners[currentIndex].desktop}
@@ -84,7 +139,10 @@ const BannerInitial = () => {
         ))}
       </div>
     </div>
-  );
-};
+        )
+      }
+    </>
+   
+  )
 
-export default BannerInitial;
+}
