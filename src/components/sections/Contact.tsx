@@ -19,7 +19,7 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>;
 
-const DEST_EMAIL = "leonlucassuckow@hotmail.com";
+const DEST_EMAIL = "taylaf.consulting@gmail.com";
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
