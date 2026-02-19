@@ -1,0 +1,5 @@
+name = "fuckner-scale-up"
+compatibility_date = "2026-02-19"
+
+[assets]
+directory = "./dist"
