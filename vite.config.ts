@@ -5,7 +5,7 @@ import path from "path";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: '/', //fuckner-scale-up/
+  // base: '/', //fuckner-scale-up/
   server: {
     host: "::",
     port: 8080,
