@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
-import { Mail, MessageSquare, Copy, Check, Send, Loader2 } from "lucide-react";
+import { Mail, Copy, Check, Send, Loader2, ArrowRight } from "lucide-react";
 import { useState, useRef } from "react";
 import { toast } from "@/hooks/use-toast";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -33,7 +31,7 @@ const Contact = () => {
     setCopied(true);
     toast({
       title: "E-mail copiado!",
-      description: "O endereço de e-mail foi copiado para a área de transferência.",
+      description: "O endereço foi copiado para a área de transferência.",
     });
     setTimeout(() => setCopied(false), 2000);
   };
@@ -90,126 +88,114 @@ const Contact = () => {
   };
 
   return (
-    <section id="contato" className="py-20 bg-gradient-hero">
+    <section id="contato" className="py-24 bg-gradient-hero">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 ref={titleAnimation.ref} className={`text-3xl md:text-5xl font-bold text-white mb-6 ${titleAnimation.className}`}>
+        <div className="text-center mb-16">
+          <h2 ref={titleAnimation.ref} className={`text-3xl md:text-5xl font-bold text-white mb-4 ${titleAnimation.className}`}>
             Vamos{" "}
             <span className="text-accent">transformar</span>{" "}
             seu negócio?
           </h2>
-          <p className="text-xl text-white/90 max-w-2xl mx-auto">
+          <p className="text-lg text-white/70 max-w-xl mx-auto">
             Entre em contato e descubra como alcançar resultados extraordinários
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="grid lg:grid-cols-5 gap-8 mb-12">
-            {/* Contact Form */}
-            <Card className="lg:col-span-3 shadow-elegant border-0 bg-white/95 backdrop-blur-sm">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold mb-6">Envie sua mensagem</h3>
-                <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-                  <input type="text" name="_honey" className="hidden" />
-                  <input type="hidden" name="_captcha" value="false" />
+        <div className="max-w-3xl mx-auto">
+          {/* Form */}
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-5 mb-12">
+            <input type="text" name="_honey" className="hidden" />
+            <input type="hidden" name="_captcha" value="false" />
 
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="name">Nome *</Label>
-                      <Input id="name" name="name" placeholder="Seu nome" maxLength={100} />
-                      {errors.name && <p className="text-sm text-destructive">{errors.name}</p>}
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="email">E-mail *</Label>
-                      <Input id="email" name="email" type="email" placeholder="seu@email.com" maxLength={255} />
-                      {errors.email && <p className="text-sm text-destructive">{errors.email}</p>}
-                    </div>
-                  </div>
-
-                  <div className="grid sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="subject">Assunto *</Label>
-                      <Input id="subject" name="_subject" placeholder="Assunto da mensagem" maxLength={200} />
-                      {errors.subject && <p className="text-sm text-destructive">{errors.subject}</p>}
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="phone">Telefone (opcional)</Label>
-                      <Input id="phone" name="phone" type="tel" placeholder="(41) 99999-9999" maxLength={20} />
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <Label htmlFor="message">Mensagem *</Label>
-                    <Textarea id="message" name="message" placeholder="Escreva sua mensagem aqui..." rows={5} maxLength={2000} />
-                    {errors.message && <p className="text-sm text-destructive">{errors.message}</p>}
-                  </div>
-
-                  <Button type="submit" variant="cta" size="lg" className="w-full" disabled={sending}>
-                    {sending ? (
-                      <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Enviando...</>
-                    ) : (
-                      <><Send className="h-4 w-4 mr-2" /> Enviar Mensagem</>
-                    )}
-                  </Button>
-                </form>
-              </CardContent>
-            </Card>
-
-            {/* Side cards */}
-            <div className="lg:col-span-2 flex flex-col gap-8">
-              <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-sm hover:shadow-glow transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-center text-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-accent rounded-full flex items-center justify-center shadow-lg">
-                      <Mail className="h-8 w-8 text-accent-foreground" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-2">Email</h3>
-                      <a href={`mailto:${DEST_EMAIL}`} className="text-lg text-accent hover:underline transition-all">
-                        {DEST_EMAIL}
-                      </a><br />
-                      <Button onClick={copyEmail} size="lg" className="mt-3 bg-accent text-accent-foreground hover:bg-accent/90 transition-all duration-600">
-                        {copied ? <><Check className="h-4 w-4 mr-2" /> Copiado!</> : <><Copy className="h-4 w-4 mr-2" /> Copiar e-mail</>}
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-
-              <Card className="shadow-elegant border-0 bg-gradient-to-br from-green-50 to-green-100 hover:shadow-glow transition-all duration-300">
-                <CardContent className="p-8">
-                  <div className="flex flex-col items-center text-center gap-4">
-                    <div className="w-16 h-16 bg-gradient-to-r from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg">
-                      <MessageSquare className="h-8 w-8 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-4">WhatsApp</h3>
-                      <Button variant="default" size="lg" className="bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-300" asChild>
-                        <a href="https://wa.me/5541998317531?text=Quero%20impulsionar%20meus%20neg%C3%B3cios%20com%20voc%C3%AA%2C%20Tayla%20Fuckner%21" target="_blank" rel="noopener noreferrer">
-                          💬 Conversar Agora
-                        </a>
-                      </Button>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          </div>
-
-          {/* Why Choose Section */}
-          <Card className="shadow-elegant border-0 bg-white/95 backdrop-blur-sm">
-            <CardContent className="p-10">
-              <h3 className="text-2xl font-bold text-center mb-8">Por que escolher a Fuckner?</h3>
-              <div className="grid md:grid-cols-2 gap-6">
-                {["+14 anos de experiência comprovada", "R$ 28+ milhões em vendas gerenciadas", "Estratégias personalizadas, não fórmulas prontas", "Foco em resultados mensuráveis"].map((item) => (
-                  <div key={item} className="flex items-start gap-3">
-                    <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-base">{item}</span>
-                  </div>
-                ))}
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Input
+                  id="name"
+                  name="name"
+                  placeholder="Nome *"
+                  maxLength={100}
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-12 focus:border-accent focus:ring-accent/30"
+                />
+                {errors.name && <p className="text-xs text-red-300 mt-1">{errors.name}</p>}
               </div>
-            </CardContent>
-          </Card>
+              <div>
+                <Input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="E-mail *"
+                  maxLength={255}
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-12 focus:border-accent focus:ring-accent/30"
+                />
+                {errors.email && <p className="text-xs text-red-300 mt-1">{errors.email}</p>}
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <Input
+                  id="subject"
+                  name="_subject"
+                  placeholder="Assunto *"
+                  maxLength={200}
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-12 focus:border-accent focus:ring-accent/30"
+                />
+                {errors.subject && <p className="text-xs text-red-300 mt-1">{errors.subject}</p>}
+              </div>
+              <div>
+                <Input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder="Telefone (opcional)"
+                  maxLength={20}
+                  className="bg-white/10 border-white/20 text-white placeholder:text-white/40 h-12 focus:border-accent focus:ring-accent/30"
+                />
+              </div>
+            </div>
+
+            <div>
+              <Textarea
+                id="message"
+                name="message"
+                placeholder="Sua mensagem *"
+                rows={5}
+                maxLength={2000}
+                className="bg-white/10 border-white/20 text-white placeholder:text-white/40 resize-none focus:border-accent focus:ring-accent/30"
+              />
+              {errors.message && <p className="text-xs text-red-300 mt-1">{errors.message}</p>}
+            </div>
+
+            <Button type="submit" variant="cta" size="lg" className="w-full h-13" disabled={sending}>
+              {sending ? (
+                <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Enviando...</>
+              ) : (
+                <><Send className="h-4 w-4 mr-2" /> Enviar Mensagem</>
+              )}
+            </Button>
+          </form>
+
+          {/* Quick contact row */}
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={copyEmail}
+              className="group flex items-center gap-3 px-5 py-3 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 transition-all duration-300"
+            >
+              {copied ? <Check className="h-4 w-4 text-accent" /> : <Mail className="h-4 w-4 text-white/60" />}
+              <span className="text-sm text-white/80 group-hover:text-white transition-colors">{DEST_EMAIL}</span>
+              {!copied && <Copy className="h-3.5 w-3.5 text-white/40" />}
+            </button>
+
+            <a
+              href="https://wa.me/5541998317531?text=Quero%20impulsionar%20meus%20neg%C3%B3cios%20com%20voc%C3%AA%2C%20Tayla%20Fuckner%21"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center gap-3 px-5 py-3 rounded-full bg-[#25D366]/15 border border-[#25D366]/25 backdrop-blur-sm hover:bg-[#25D366]/25 transition-all duration-300"
+            >
+              <span className="text-sm text-[#25D366] font-medium">WhatsApp</span>
+              <ArrowRight className="h-3.5 w-3.5 text-[#25D366]/70 group-hover:translate-x-0.5 transition-transform" />
+            </a>
+          </div>
         </div>
       </div>
     </section>
