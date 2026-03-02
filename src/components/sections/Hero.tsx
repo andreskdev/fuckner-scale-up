@@ -24,7 +24,7 @@ const Hero = ({casesSectionRef}) => {
             <h1 ref={titleAnimation.ref} className={`text-4xl md:text-5xl lg:text-6xl font-bold leading-tight ${titleAnimation.className}`}>
               Do planejamento à{" "}
               <span className="bg-gradient-accent bg-clip-text text-transparent">
-                performance
+                performance do seu e-commerce
               </span>
               : crescimento sem achismos.
             </h1>
