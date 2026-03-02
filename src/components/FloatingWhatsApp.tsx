@@ -6,16 +6,16 @@ const FloatingWhatsApp = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const servicesSection = document.getElementById("servicos");
       const inicioSection = document.getElementById("inicio");
+      const casesSection = document.getElementById("cases");
       
-      if (servicesSection && inicioSection) {
-        const servicesSectionTop = servicesSection.offsetTop;
+      if (casesSection && inicioSection) {
+        const casesSectionTop = casesSection.offsetTop;
         const inicioSectionBottom = inicioSection.offsetTop + inicioSection.offsetHeight;
         const scrollPosition = window.scrollY + window.innerHeight;
         
-        // Show button after services section, hide when at inicio section
-        if (scrollPosition > servicesSectionTop && window.scrollY > inicioSectionBottom) {
+        // Show button after cases section, hide when at inicio section
+        if (scrollPosition > casesSectionTop && window.scrollY > inicioSectionBottom) {
           setIsVisible(true);
         } else {
           setIsVisible(false);
