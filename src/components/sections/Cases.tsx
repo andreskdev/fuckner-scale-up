@@ -1,53 +1,44 @@
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Badge } from "@/components/ui/badge";
 import { TrendingUp } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-const Cases = ({casesSectionRef}) => {
+const Cases = ({ casesSectionRef }: { casesSectionRef: React.RefObject<HTMLDivElement> }) => {
   const titleAnimation = useScrollAnimation({ direction: "up" });
-
-  console.log(casesSectionRef)
 
   const cases = [
     {
       id: "case1",
       title: "Rede de 12 Lojas",
       description: "Implantação de marketplaces",
-      result: "Aumento de 45% no faturamento",
-      details: "Projeto completo de entrada em marketplaces para rede com 12 lojas físicas. Estruturação de catálogo, otimização de preços e estratégia de presença digital resultaram em crescimento expressivo de vendas."
+      result: "+45% faturamento",
+      details: "Estruturação de catálogo, otimização de preços e estratégia de presença digital resultaram em crescimento expressivo de vendas."
     },
     {
-      id: "case2", 
+      id: "case2",
       title: "Migração de Plataforma",
       description: "Migração para VTEX",
-      result: "De R$ 400 mil para R$ 1,5 milhão/mês",
-      details: "Migração complexa de e-commerce com reestruturação completa de processos, integração de sistemas e otimização da experiência do usuário. O resultado foi um crescimento de quase 4x no faturamento mensal."
+      result: "R$400k → R$1,5M/mês",
+      details: "Reestruturação completa de processos, integração de sistemas e otimização da experiência do usuário."
     },
     {
       id: "case3",
       title: "Contas Zeradas",
-      description: "Reestruturação total após perda de contas",
-      result: "De R$0 a R$ 100 mil/mês em 4 meses",
-      details: "Reconstrução completa de operação digital após perda total de contas de marketing. Nova estratégia, criação de campanhas do zero e estruturação de funil de vendas eficiente."
+      description: "Reestruturação após perda de contas",
+      result: "R$0 → R$100k em 4 meses",
+      details: "Nova estratégia, criação de campanhas do zero e estruturação de funil de vendas eficiente."
     },
     {
       id: "case4",
       title: "Mobiliário Técnico",
-      description: "Foco em equipe de atendimento e SAC",
-      result: "De R$ 500 mil para R$ 740 mil em 3 meses",
-      details: "Reestruturação do atendimento ao cliente e processos de SAC, implementação de CRM personalizado e treinamento de equipe comercial para empresa do setor de mobiliário técnico."
+      description: "Foco em atendimento e SAC",
+      result: "R$500k → R$740k em 3 meses",
+      details: "Implementação de CRM personalizado e treinamento de equipe comercial."
     },
     {
       id: "case5",
       title: "Marca de Móveis",
       description: "Reestruturação de fluxos e gestão",
-      result: "De R$ 30 mil para R$ 200 mil em 3 meses",
-      details: "Transformação completa dos processos internos, implementação de automações, reestruturação do funil de vendas e otimização da gestão comercial para marca de móveis."
+      result: "R$30k → R$200k em 3 meses",
+      details: "Automações, reestruturação do funil de vendas e otimização da gestão comercial."
     }
   ];
 
@@ -67,36 +58,26 @@ const Cases = ({casesSectionRef}) => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Accordion type="single" collapsible className="space-y-4">
-            {cases.map((caseItem) => (
-              <AccordionItem 
-                key={caseItem.id} 
-                value={caseItem.id}
-                className="border border-border rounded-lg px-6 shadow-card bg-card/50 backdrop-blur-sm"
+        <div className="max-w-5xl mx-auto grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {cases.map((caseItem, index) => {
+            const anim = useScrollAnimation({ direction: "up", delay: index * 100 });
+            return (
+              <div
+                key={caseItem.id}
+                ref={anim.ref}
+                className={`group relative border border-border rounded-xl p-6 bg-card/50 backdrop-blur-sm shadow-card hover:shadow-elegant transition-all duration-[600ms] ease-smooth ${anim.className}`}
               >
-                <AccordionTrigger className="hover:no-underline py-6">
-                  <div className="flex items-center justify-between w-full">
-                    <div className="text-left">
-                      <h3 className="text-lg font-semibold">{caseItem.title}</h3>
-                      <p className="text-sm text-muted-foreground">{caseItem.description}</p>
-                    </div>
-                    <Badge variant="secondary" className="ml-4 bg-green-100 text-green-700 border-green-300">
-                      <TrendingUp className="h-3 w-3 mr-1" />
-                      {caseItem.result}
-                    </Badge>
-                  </div>
-                </AccordionTrigger>
-                <AccordionContent className="pb-6">
-                  <div className="pt-4 border-t border-border">
-                    <p className="text-muted-foreground leading-relaxed">
-                      {caseItem.details}
-                    </p>
-                  </div>
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                <div className="flex items-center gap-2 mb-3">
+                  <TrendingUp className="h-4 w-4 text-success shrink-0" />
+                  <span className="text-sm font-semibold text-success">{caseItem.result}</span>
+                </div>
+                <h3 className="text-lg font-bold mb-1">{caseItem.title}</h3>
+                <p className="text-xs font-medium text-muted-foreground uppercase tracking-wide mb-3">{caseItem.description}</p>
+                <div className="h-px w-10 bg-gradient-accent mb-3" />
+                <p className="text-sm text-muted-foreground leading-relaxed">{caseItem.details}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

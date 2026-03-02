@@ -16,7 +16,7 @@ import { BannerInitial } from "@/components/sections/BannerInitial";
 
 const Index = () => {
 
-  const casesSectionRef = useRef<HTMLButtonElement>(null);
+  const casesSectionRef = useRef<HTMLDivElement>(null);
 
   return (
     <div className="min-h-screen">
