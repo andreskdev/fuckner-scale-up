@@ -166,13 +166,15 @@ const Contact = () => {
               {errors.message && <p className="text-xs text-red-300 mt-1">{errors.message}</p>}
             </div>
 
-            <Button type="submit" variant="cta" size="lg" className="w-full h-13" disabled={sending}>
-              {sending ? (
-                <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Enviando...</>
-              ) : (
-                <><Send className="h-4 w-4 mr-2" /> Enviar Mensagem</>
-              )}
-            </Button>
+            <div className="flex justify-center pt-2">
+              <Button type="submit" variant="cta" size="default" className="px-8" disabled={sending}>
+                {sending ? (
+                  <><Loader2 className="h-4 w-4 mr-2 animate-spin" /> Enviando...</>
+                ) : (
+                  <><Send className="h-4 w-4 mr-2" /> Enviar Mensagem</>
+                )}
+              </Button>
+            </div>
           </form>
 
           {/* Quick contact row */}
