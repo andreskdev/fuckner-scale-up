@@ -58,7 +58,7 @@ const Cases = ({ casesSectionRef }: { casesSectionRef: React.RefObject<HTMLDivEl
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-5 [&>div]:w-full [&>div]:md:w-[calc(50%-0.625rem)] [&>div]:lg:w-[calc(33.333%-0.875rem)]">
           {cases.map((caseItem, index) => {
             const anim = useScrollAnimation({ direction: "up", delay: index * 100 });
             return (
