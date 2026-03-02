@@ -184,7 +184,7 @@ const Contact = () => {
               className="group flex items-center gap-3 px-5 py-3 rounded-full bg-white/10 border border-white/15 backdrop-blur-sm hover:bg-white/15 transition-all duration-300"
             >
               {copied ? <Check className="h-4 w-4 text-accent" /> : <Mail className="h-4 w-4 text-white/60" />}
-              <span className="text-sm text-white/80 group-hover:text-white transition-colors">{DEST_EMAIL}</span>
+              <span className="font-bold text-sm text-white/80 group-hover:text-white transition-colors">{DEST_EMAIL}</span>
               {!copied && <Copy className="h-3.5 w-3.5 text-white/40" />}
             </button>
 
@@ -194,7 +194,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="group flex items-center gap-3 px-5 py-3 rounded-full bg-[#25D366]/15 border border-[#25D366]/25 backdrop-blur-sm hover:bg-[#25D366]/25 transition-all duration-300"
             >
-              <span className="text-sm text-[#25D366] font-medium">WhatsApp</span>
+              <span className="text-sm text-[#25D366] font-bold">WhatsApp</span>
               <ArrowRight className="h-3.5 w-3.5 text-[#25D366]/70 group-hover:translate-x-0.5 transition-transform" />
             </a>
           </div>
