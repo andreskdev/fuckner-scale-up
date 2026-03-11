@@ -17,7 +17,7 @@ const contactSchema = z.object({
 
 type ContactForm = z.infer<typeof contactSchema>;
 
-const DEST_EMAIL = "taylla@fucker.com.br";
+const DEST_EMAIL = "taylla@fuckner.com.br";
 
 const Contact = () => {
   const [copied, setCopied] = useState(false);
